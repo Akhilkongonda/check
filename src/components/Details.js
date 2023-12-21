@@ -11,10 +11,12 @@ function Details() {
   
     try {
       // Use axios to make a POST request with the form data
-      const response = await axios.post('https://check-two-bice.vercel.app/Dataapi/insert', {
-        name: data.name,
-        number: data.number,
-      });
+      const response = await axios.post('https://check-two-bice.vercel.app/Dataapi/insert', data, {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
   
       // Assuming result.message is available in the response data
       setres(response.data.message);
