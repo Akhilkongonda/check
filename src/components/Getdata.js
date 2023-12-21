@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Getdata() {
-    const [datas,setdata]=useState(null);
+  const [datas, setdata] = useState([]); // Set initial state to an empty array
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,17 +24,15 @@ function Getdata() {
 
   return (
     <div>
-     {
-        datas ? (
-          <ul>
-            {datas.map((item, index) => (
-              <li key={index}>{JSON.stringify(item)}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>Loading data...</p>
-        )
-      }
+      {datas.length > 0 ? ( // Check if datas is an array with elements
+        <ul>
+          {datas.map((item, index) => (
+            <li key={index}>{JSON.stringify(item)}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading data...</p>
+      )}
     </div>
   );
 }
