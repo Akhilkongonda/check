@@ -10,6 +10,7 @@ const corsOptions = {
   origin: 'https://check-two-bice.vercel.app', // Replace with the actual domain of your React app
   optionsSuccessStatus: 200,
 };
+studentdata.use(cors(corsOptions))
 
 studentdata.post('/post', async (req, res) => {
     try {
