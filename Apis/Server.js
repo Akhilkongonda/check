@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Your API routes go here
 const studentdata = require('./Dataapi');
-app.use('/DataApi', studentdata);
+app.use('/Dataapi', studentdata);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

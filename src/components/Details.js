@@ -11,7 +11,7 @@ function Details() {
   
     try {
       // Use axios to make a POST request with the form data
-      const response = await axios.post('https://check-two-bice.vercel.app/post', data);
+      const response = await axios.post('https://check-two-bice.vercel.app/Dataapi/insert', data);
   
       console.log('Submission successful:', response.data);
   

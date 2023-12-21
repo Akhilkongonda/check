@@ -14,7 +14,7 @@ const corsOptions = {
 
 studentdata.use(cors(corsOptions))
 
-studentdata.post('/post', async (req, res) => {
+studentdata.post('/insert', async (req, res) => {
     try {
       let data = req.body;
       console.log("Received data:", data);
