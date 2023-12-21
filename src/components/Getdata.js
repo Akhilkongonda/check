@@ -6,7 +6,7 @@ function Getdata() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://howdeploy-akhilkongondas-projects.vercel.app/DataApi/get');
+        const response = await axios.get('https://check-fawn-five.vercel.app/DataApi/get');
         const data = response.data;
 
         // Process the data or update state as needed

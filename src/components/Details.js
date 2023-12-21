@@ -11,7 +11,7 @@ function Details() {
   
     try {
       // Use axios to make a POST request with the form data
-      const response = await axios.post('https://howdeploy-akhilkongondas-projects.vercel.app/DataApi/post', data);
+      const response = await axios.post('https://check-fawn-five.vercel.app/DataApi/post', data);
   
       console.log('Submission successful:', response.data);
   
