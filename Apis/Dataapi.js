@@ -5,6 +5,12 @@ const cors = require('cors');
 studentdata.use(exp.json());
 studentdata.use(cors());
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://check-two-bice.vercel.app', // Replace with the actual domain of your React app
+  optionsSuccessStatus: 200,
+};
+
 studentdata.post('/post', async (req, res) => {
     try {
       let data = req.body;
