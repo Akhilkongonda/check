@@ -3,6 +3,8 @@ import axios from 'axios';
 
 function Getdata() {
   const [datas, setdata] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,10 +16,13 @@ function Getdata() {
         if (Array.isArray(data)) {
           setdata(data);
         } else {
-          console.error('Data is not an array:', data);
+          setError('Data is not in the expected format');
         }
       } catch (err) {
         console.error('Error fetching data:', err);
+        setError('Error fetching data. Please try again.');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -26,14 +31,18 @@ function Getdata() {
 
   return (
     <div>
-      {datas.length > 0 ? (
+      {loading ? (
+        <p>Loading data...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : datas.length > 0 ? (
         <ul>
           {datas.map((item, index) => (
             <li key={index}>{JSON.stringify(item)}</li>
           ))}
         </ul>
       ) : (
-        <p>Loading data...</p>
+        <p>No data available.</p>
       )}
     </div>
   );
