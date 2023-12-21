@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Getdata() {
-  const [datas, setdata] = useState([]); // Set initial state to an empty array
+  const [datas, setdata] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -10,21 +10,23 @@ function Getdata() {
         const response = await axios.get('https://check-fawn-five.vercel.app/DataApi/get');
         const data = response.data;
 
-        // Process the data or update state as needed
-        console.log('Data:', data);
-        setdata(data);
+        // Ensure that data is an array before updating state
+        if (Array.isArray(data)) {
+          setdata(data);
+        } else {
+          console.error('Data is not an array:', data);
+        }
       } catch (err) {
         console.error('Error fetching data:', err);
       }
     };
 
-    // Call the fetchData function
     fetchData();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, []);
 
   return (
     <div>
-      {datas.length > 0 ? ( // Check if datas is an array with elements
+      {datas.length > 0 ? (
         <ul>
           {datas.map((item, index) => (
             <li key={index}>{JSON.stringify(item)}</li>
