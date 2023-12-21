@@ -31,25 +31,4 @@ studentdata.post('/post', async (req, res) => {
   });
 
 
-  studentdata.get('/get', async (req, res) => {
-    try {
-      // Corrected SQL query syntax
-      const query = 'SELECT * FROM `check`';
-  
-      // Execute the query
-      connection.query(query, (error, results) => {
-        if (error) {
-          console.error('Database error:', error);
-          res.status(500).json({ message: 'Internal Server Error', error: error.message });
-        } else {
-          console.log('Data fetched successfully:', results);
-          res.status(200).json(results);
-        }
-      });
-    } catch (err) {
-      console.error('Unexpected error:', err);
-      res.status(500).json({ message: 'Internal Server Error', error: err.message });
-    }
-  });
-  
   module.exports=studentdata
