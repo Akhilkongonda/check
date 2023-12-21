@@ -8,7 +8,7 @@ studentdata.use(cors());
 // CORS configuration
 const corsOptions = {
   origin: '*',
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 204,
 };
 
 
